@@ -1,5 +1,5 @@
 {% set name = "reno" %}
-{% set version = "4.0.0" %}
+{% set version = "4.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/reno-{{ version }}.tar.gz
-  sha256: 0ebcad207133f4dbb7bc176ec3513fcd8e107a5d9e2f04b5621eb61da1147089
+  sha256: f992f1fdbd16215ec9de47af08131d53a2830c9e78439eb563ce8d6a7f625370
 
 build:
   noarch: python
