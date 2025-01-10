@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/reno-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/reno-{{ version }}.tar.gz
   sha256: f992f1fdbd16215ec9de47af08131d53a2830c9e78439eb563ce8d6a7f625370
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - reno = reno.main:main
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pbr
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - pyyaml >=5.3.1
     - dulwich >=0.15.0
     - packaging >=20.4
@@ -36,6 +36,7 @@ test:
     - reno --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://docs.openstack.org/reno/latest/
